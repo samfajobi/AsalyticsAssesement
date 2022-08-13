@@ -1,3 +1,15 @@
+:root  {
+  --background-color: #F2FBF6;
+  --card-border-color: #B7BECC;
+
+  --available-label-color: #6FD791;
+  --unavailable-label-color: #BC3131;
+
+  --text-color: #000000;
+  --primary-color: #FFFFFF;
+}
+
+
 html,
 body {
   padding: 0;
