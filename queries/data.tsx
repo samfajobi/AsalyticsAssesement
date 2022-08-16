@@ -1,4 +1,4 @@
-export const data = [
+export const testData = [
     {
         name: "SamFajobi",
         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOyCtPSy5vZ6NNKe6nmW5aEAWDfv2R3bV72g&usqp=CAU",
