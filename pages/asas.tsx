@@ -3,7 +3,9 @@ import styles from "../styles/Asas.module.css"
 import styled from "styled-components";
 import { gql, useLazyQuery } from "@apollo/client";
 import Spinner from "../components/spinner"
-
+import Image from 'next/image'
+import vector from "../public/Vector2.png";
+import asalytics from "../public/SAlytics.png";
 
 const AllAsasData = gql`
     query MyQuery {
@@ -47,13 +49,11 @@ const Asas = () => {
 
     return (
         <div className={styles.pageContainer}>
-            
-            {loading && <div><Spinner/></div>}
             <div>
                 <div className={styles.headers}>
                     <div className={styles.logo}>
-                        <img src="Vector 2.png" alt="" />
-                        <img src="SAlytics.png" alt="" />
+                        <Image src={vector} alt="Hello"  />
+                        <Image src={asalytics} alt="Hello" />
                     </div>
                     <div className={styles.buttonDiv}>
                         <button onClick={() => getAsasData()} className={styles.button}>ANALYSE ASAs</button>
@@ -69,18 +69,15 @@ const Asas = () => {
                     </div>
                     ))}
                 </div>      
-            </div>    
-        </div>
-   
-  )
+            </div>
+            {loading && <div><Spinner /></div> }   
+
+        </div>  
+    )
 
 }
 
-// const getStaticProps = async () => {
-//     const response =  await fetch(" https://analytics-api.herokuapp.com/analytics");
-//     const result = await response.json()
 
-//     console.log(result)
-// }
+
 
 export default Asas;
