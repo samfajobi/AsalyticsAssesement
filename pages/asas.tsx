@@ -2,7 +2,7 @@ import styles from "../styles/Asas.module.css"
 import { testData } from '../queries/data'
 import styled from "styled-components";
 
-import { gql, useQuery, useLazyQuery } from "@apollo/client";
+import { gql, useLazyQuery } from "@apollo/client";
 
 
 const AllAsasData = gql`
@@ -18,22 +18,37 @@ const AllAsasData = gql`
 
 `
 
-const Availability = styled.div`
-    width: 150px;
-    height: 100px;
+interface ShadowedProps {
+    readonly isDragActive: boolean;
+   
+  };
+  
+  
+  
+  const Shadowed = styled.div<ShadowedProps>`
+    width: 100px;
+    height: 40px;
+    background-color: ${(props) => props.isDragActive ? '#6FD791' : '#BC3131' };
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: 10px;
 `
 
 
-const Asas = (e: any) => {
+
+
+const Asas = () => {
        
     const [getAsasData, {loading, error, data = { asalist: { result: []} }, called}] = useLazyQuery(AllAsasData, { fetchPolicy: 'cache-and-network' });
 
-    console.log( error, loading,  data.asalist, called )
+    console.log( error, loading,  data, called )
 
     return (
         <div className={styles.pageContainer}>
             
-            {loading && <div>Spinner....</div>}=
+            {loading && <div>Spinner....</div>}
             <div>
                 <div className={styles.headers}>
                     <div className={styles.logo}>
@@ -50,7 +65,7 @@ const Asas = (e: any) => {
                     <div className={styles.AsaDatas}>
                         <img className={styles.Logo} src={value.logo}/>
                         <div className={styles.Name}>{value.name}</div> 
-                        <Availability className={styles.Availability}>{value.available }</Availability>
+                        <Shadowed isDragActive={value.available} >{value.available ? "Available" : "Unavailable"}</Shadowed>
                     </div>
                     ))}
                 </div>      
