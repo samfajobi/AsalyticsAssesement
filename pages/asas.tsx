@@ -63,7 +63,7 @@ const Asas = () => {
                 <div className={styles.Asas}> 
                     {data.asalist.result.map((value: any) => (
                     <div key={value.id} className={styles.AsaDatas}>
-                        <Image className={styles.Logo} src={value.logo} alt="Hello" height="30" width="30"/>
+                        <Image className={styles.Logo} src={value.logo} alt="Hello" layout="fill"/>
                         <div className={styles.Name}>{value.name}</div> 
                         <Shadowed isDragActive={value.available} >{value.available ? "Available" : "Unavailable"}</Shadowed>
                     </div>
