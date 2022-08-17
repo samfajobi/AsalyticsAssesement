@@ -46,6 +46,7 @@ const Asas = () => {
     const [getAsasData, {loading, error, data = { asalist: { result: []} }, called}] = useLazyQuery(AllAsasData, { fetchPolicy: 'cache-and-network' });
 
     console.log( error, loading,  data, called )
+   
 
     return (
         <div className={styles.pageContainer}>
@@ -63,15 +64,15 @@ const Asas = () => {
                 <div className={styles.Asas}> 
                     {data.asalist.result.map((value: any) => (
                     <div key={value.id} className={styles.AsaDatas}>
-                        <Image className={styles.Logo} src={value.logo} alt="Hello" layout="fill"/>
-                        <div className={styles.Name}>{value.name}</div> 
-                        <Shadowed isDragActive={value.available} >{value.available ? "Available" : "Unavailable"}</Shadowed>
+                        <img  key={value.id} className={styles.Logo} src={value.logo} alt="Hello" layout="fill"/>
+                        <div  key={value.id} className={styles.Name}>{value.name}</div> 
+                        <Shadowed  key={value.id} isDragActive={value.available} >{value.available ? "Available" : "Unavailable"}</Shadowed>
                     </div>
                     ))}
                 </div>      
             </div>
-            {loading && <div><Spinner /></div> }   
-
+            {loading && <div><Spinner /></div> }  
+           
         </div>  
     )
 
