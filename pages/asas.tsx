@@ -62,8 +62,8 @@ const Asas = () => {
                 <div className={styles.title}>List of Algorand Standard Assets <br/> on ASAlytics</div>
                 <div className={styles.Asas}> 
                     {data.asalist.result.map((value: any) => (
-                    <div className={styles.AsaDatas}>
-                        <img className={styles.Logo} src={value.logo}/>
+                    <div key={value.id} className={styles.AsaDatas}>
+                        <Image className={styles.Logo} src={value.logo} alt="Hello"/>
                         <div className={styles.Name}>{value.name}</div> 
                         <Shadowed isDragActive={value.available} >{value.available ? "Available" : "Unavailable"}</Shadowed>
                     </div>
