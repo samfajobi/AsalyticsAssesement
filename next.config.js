@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+};
 
-module.exports = nextConfig
+module.exports = {
+  image: {
+    domains: ["algorand-wallet-mainnet.s3.amazonaws.com"],
+  },
+};
