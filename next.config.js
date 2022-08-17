@@ -5,7 +5,7 @@ const nextConfig = {
 };
 
 module.exports = {
-  image: {
+  images: {
     domains: ["algorand-wallet-mainnet.s3.amazonaws.com"],
   },
 };
