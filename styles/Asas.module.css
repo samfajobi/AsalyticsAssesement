@@ -24,6 +24,8 @@
  }
 
 .title {
+    font-family: 'Readex Pro';
+    font-style: normal;
     text-align: center;
     font-size: 36px;
     font-weight: 500;
@@ -40,10 +42,11 @@
 .AsaDatas {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     border: 1px solid #B7BECC;
     width: 250px;
-    height: 120px;
+    height: 150px;
     border-radius: 10px;
     margin-right: 35px;
     margin-top: 20px;
@@ -54,8 +57,12 @@
 }
 
 .Name {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
 
 }
+
 
 .Availability {
 

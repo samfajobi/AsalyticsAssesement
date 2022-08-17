@@ -1,8 +1,8 @@
 import styles from "../styles/Asas.module.css"
-import { testData } from '../queries/data'
+//import { testData } from '../queries/data'
 import styled from "styled-components";
-
 import { gql, useLazyQuery } from "@apollo/client";
+import Spinner from "../components/spinner"
 
 
 const AllAsasData = gql`
@@ -27,7 +27,7 @@ interface ShadowedProps {
   
   const Shadowed = styled.div<ShadowedProps>`
     width: 100px;
-    height: 40px;
+    height: 35px;
     background-color: ${(props) => props.isDragActive ? '#6FD791' : '#BC3131' };
     display: flex;
     justify-content: center;
@@ -48,7 +48,7 @@ const Asas = () => {
     return (
         <div className={styles.pageContainer}>
             
-            {loading && <div>Spinner....</div>}
+            {loading && <div><Spinner/></div>}
             <div>
                 <div className={styles.headers}>
                     <div className={styles.logo}>
@@ -61,7 +61,7 @@ const Asas = () => {
                 </div>
                 <div className={styles.title}>List of Algorand Standard Assets <br/> on ASAlytics</div>
                 <div className={styles.Asas}> 
-                    {testData.map((value: any) => (
+                    {data.asalist.result.map((value: any) => (
                     <div className={styles.AsaDatas}>
                         <img className={styles.Logo} src={value.logo}/>
                         <div className={styles.Name}>{value.name}</div> 
